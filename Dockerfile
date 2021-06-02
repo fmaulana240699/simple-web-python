@@ -10,4 +10,4 @@ pip3 install flask
 
 EXPOSE 5555
 
-CMD python app.py
+CMD python ./simple-web-python/app.py
