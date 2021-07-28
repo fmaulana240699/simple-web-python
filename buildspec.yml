@@ -14,6 +14,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       #- docker build --cache-from $REPO_URL:cache -t $REPO_URL:latest .
+      - docker build -t $REPO_URL:latest . 
       - docker tag $REPO_URL:latest $REPO_URL:$IMAGE_TAG
       #- docker tag $REPO_URL:latest $REPO_URL:cache
   post_build:
