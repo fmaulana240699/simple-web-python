@@ -16,10 +16,10 @@ phases:
       #- docker build --cache-from $REPO_URL:cache -t $REPO_URL:latest .
       - docker build -t $REPO_URL:latest . 
       - docker tag $REPO_URL:latest $REPO_URL:$IMAGE_TAG
-      #- docker tag $REPO_URL:latest $REPO_URL:cache
+      - docker tag $REPO_URL:latest $REPO_URL:cache
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      #- docker push $REPO_URL:cache
+      - docker push $REPO_URL:cache
       - docker push $REPO_URL:$IMAGE_TAG
