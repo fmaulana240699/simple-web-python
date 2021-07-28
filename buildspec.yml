@@ -8,11 +8,12 @@ phases:
       - docker login --username $DOCKER_USER --password $DOCKER_PASS
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - docker pull $REPO_URL:cache
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPO_URL:latest .
+      - docker build --cache-from $REPO_URL:cache -t $REPO_URL:latest .
       - docker tag $REPO_URL:latest $REPO_URL:$IMAGE_TAG
       - docker tag $REPO_URL:latest $REPO_URL:cache
   post_build:
