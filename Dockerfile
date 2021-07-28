@@ -1,4 +1,4 @@
-from python:slim-buster
+from python:latest
 
 RUN mkdir APP
 
