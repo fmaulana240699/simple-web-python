@@ -1,8 +1,8 @@
-from python:latest
+FROM python:latest
 
 RUN mkdir APP
 
-WORKDIR APP
+WORKDIR /APP
 
 ADD app.py .
 
