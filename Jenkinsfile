@@ -16,7 +16,7 @@ import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 		            steps {
 		                container('deployer-buildah') {
 		                    //sh "${ENTRYPOINT}"
-				    sh 'buildah bud -t fajar-test:v1 . '
+				    sh 'whoami && buildah bud -t fajar-test:v1 . '
 		                }
 		            }
 		        }
