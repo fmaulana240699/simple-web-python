@@ -16,7 +16,7 @@ import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 		            steps {
 		                container('deployer-buildah') {
 		                    //sh "${ENTRYPOINT}"
-				    sh 'buildah build -t fajar-test:v1 . && podman tag fajar-test:v1 asia.gcr.io/sirclo-1152/fajar-test:v1 && podman push asia.gcr.io/sirclo-1152/fajar-test:v1'
+				    sh 'buildah bud -t fajar-test:v1 . '
 		                }
 		            }
 		        }
